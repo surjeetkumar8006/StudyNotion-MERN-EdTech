@@ -39,10 +39,3 @@ Database: MongoDB stores user data, course content, and ratings.
 Hooks: useState, useEffect, useDispatch, useSelector, useNavigate, useRef, useParams, useLocation
 Libraries: React Hot Toast, Chart.js, Framer Motion, Swiper, Video React, React Dropzone, Lazy Loading, OTP Input, Super Responsive Table
 
-🖥️ Screenshots
-Home & About
-<img width='100%' src='https://github.com/Aniruddha-Gade/Study-Notion-EdTech__MERN-Stack/blob/main/screenshots/home3.png' /> <img width='100%' src='https://github.com/Aniruddha-Gade/Study-Notion-EdTech__MERN-Stack/blob/main/screenshots/about.png' />
-Dashboard & Courses
-<img width='100%' src='https://github.com/Aniruddha-Gade/Study-Notion-EdTech__MERN-Stack/blob/main/screenshots/dashboard.png' /> <img width='100%' src='https://github.com/Aniruddha-Gade/Study-Notion-EdTech__MERN-Stack/blob/main/screenshots/course%20details1.png' />
-Cart & Reviews
-<img width='100%' src='https://github.com/Aniruddha-Gade/Study-Notion-EdTech__MERN-Stack/blob/main/screenshots/cart1.png' /> <img width='100%' src='https://github.com/Aniruddha-Gade/Study-Notion-EdTech__MERN-Stack/blob/main/screenshots/add%20review.png' />
