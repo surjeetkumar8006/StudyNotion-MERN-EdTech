@@ -48,8 +48,8 @@ jobs:
             -e EMAIL_PASS="${{ secrets.EMAIL_PASS }}" \
             -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
             -p 5000:5000 \
-            ersurjeetkumar9389/institutewebsite-backend:latest
+            ersurjeetkumar9389/institute-backend:latest
 
           docker run -d --name react_frontend \
             -p 5173:80 \
-            ersurjeetkumar9389/institutewebsite-frontend:latest
+            ersurjeetkumar9389/institute-frontend:latest
