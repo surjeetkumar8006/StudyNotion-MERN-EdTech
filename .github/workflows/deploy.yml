@@ -23,10 +23,10 @@ jobs:
           password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       - name: Pull backend image
-        run: docker pull ersurjeetkumar9389/institutewebsite-backend:latest
+        run: docker pull ersurjeetkumar9389/institute-backend:latest
 
       - name: Pull frontend image
-        run: docker pull ersurjeetkumar9389/institutewebsite-frontend:latest
+        run: docker pull ersurjeetkumar9389/institute-frontend:latest
 
       - name: Deploy containers
         run: |
