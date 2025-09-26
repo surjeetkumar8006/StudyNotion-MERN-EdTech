@@ -11,16 +11,16 @@ services:
       - /app/node_modules
     environment:
       - NODE_ENV=development
-      - DATABASE_URL=${DATABASE_URL}
-      - CLOUD_NAME=${CLOUD_NAME}
-      - API_KEY=${API_KEY}
-      - API_SECRET=${API_SECRET}
-      - RAZORPAY_KEY=${RAZORPAY_KEY}
-      - RAZORPAY_SECRET=${RAZORPAY_SECRET}
-      - MAIL_HOST=${MAIL_HOST}
-      - EMAIL_USER=${EMAIL_USER}
-      - EMAIL_PASS=${EMAIL_PASS}
-      - JWT_SECRET=${JWT_SECRET}
+      - DATABASE_URL=mongodb+srv://SURJEETKUMAR:jSUwPe83w6JrAlK6@cluster0.ji8qiof.mongodb.net/myDatabase?retryWrites=true&w=majority
+      - CLOUD_NAME=your_cloud_name_here
+      - API_KEY=238723873333571
+      - API_SECRET=6Cakwg2FWtrZ1fIhc2JdDKAtzXw
+      - RAZORPAY_KEY=rzp_test_RLPP7lIbCCiPNx
+      - RAZORPAY_SECRET=3sdLltWaTCdNNVUD7fggrX3n
+      - MAIL_HOST=smtp.gmail.com
+      - EMAIL_USER=surjeetyadav80067@gmail.com
+      - EMAIL_PASS=iixdzqxvrixgryzj
+      - JWT_SECRET=myVeryStrongSecret123!@#
 
   frontend:
     build: ./frontend
@@ -29,3 +29,5 @@ services:
       - "5173:80"
     depends_on:
       - backend
+    environment:
+      - REACT_APP_API_URL=http://localhost:5000
