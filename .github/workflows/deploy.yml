@@ -3,7 +3,7 @@ name: CI/CD Deployment
 on:
   push:
     branches:
-      - main  # main branch pe push hote hi deploy trigger hoga
+      - master  # main branch pe push hote hi deploy trigger hoga
 
 jobs:
   deploy:
