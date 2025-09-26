@@ -3,7 +3,7 @@ name: CI/CD Deployment
 on:
   push:
     branches:
-      - master  # main branch pe push hote hi deploy trigger hoga
+      - master  # master branch pe push hote hi deploy trigger hoga
 
 jobs:
   deploy:
@@ -19,8 +19,8 @@ jobs:
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
         with:
-          username: ersurjeetkumar9389
-          password: Sur#@9389
+          username: ${{ secrets.DOCKER_HUB_USERNAME }}
+          password: ${{ secrets.DOCKER_HUB_PASSWORD }}
 
       - name: Pull backend image
         run: docker pull ersurjeetkumar9389/institutewebsite-backend:latest
@@ -37,16 +37,16 @@ jobs:
 
           docker run -d --name node_backend \
             -e NODE_ENV=development \
-            -e DATABASE_URL="mongodb+srv://SURJEETKUMAR:jSUwPe83w6JrAlK6@cluster0.ji8qiof.mongodb.net/myDatabase?retryWrites=true&w=majority" \
-            -e CLOUD_NAME="your_cloud_name_here" \
-            -e API_KEY="238723873333571" \
-            -e API_SECRET="6Cakwg2FWtrZ1fIhc2JdDKAtzXw" \
-            -e RAZORPAY_KEY="rzp_test_RLPP7lIbCCiPNx" \
-            -e RAZORPAY_SECRET="3sdLltWaTCdNNVUD7fggrX3n" \
-            -e MAIL_HOST="smtp.gmail.com" \
-            -e EMAIL_USER="surjeetyadav80067@gmail.com" \
-            -e EMAIL_PASS="iixdzqxvrixgryzj" \
-            -e JWT_SECRET="myVeryStrongSecret123!@#" \
+            -e DATABASE_URL="${{ secrets.DATABASE_URL }}" \
+            -e CLOUD_NAME="${{ secrets.CLOUD_NAME }}" \
+            -e API_KEY="${{ secrets.API_KEY }}" \
+            -e API_SECRET="${{ secrets.API_SECRET }}" \
+            -e RAZORPAY_KEY="${{ secrets.RAZORPAY_KEY }}" \
+            -e RAZORPAY_SECRET="${{ secrets.RAZORPAY_SECRET }}" \
+            -e MAIL_HOST="${{ secrets.MAIL_HOST }}" \
+            -e EMAIL_USER="${{ secrets.EMAIL_USER }}" \
+            -e EMAIL_PASS="${{ secrets.EMAIL_PASS }}" \
+            -e JWT_SECRET="${{ secrets.JWT_SECRET }}" \
             -p 5000:5000 \
             ersurjeetkumar9389/institutewebsite-backend:latest
 
