@@ -1,0 +1,55 @@
+name: CI/CD Deployment
+
+on:
+  push:
+    branches:
+      - main  # main branch pe push hote hi deploy trigger hoga
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Docker
+        uses: docker/setup-buildx-action@v2
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v2
+        with:
+          username: ersurjeetkumar9389
+          password: Sur#@9389
+
+      - name: Pull backend image
+        run: docker pull ersurjeetkumar9389/institutewebsite-backend:latest
+
+      - name: Pull frontend image
+        run: docker pull ersurjeetkumar9389/institutewebsite-frontend:latest
+
+      - name: Deploy containers
+        run: |
+          docker stop node_backend || true
+          docker rm node_backend || true
+          docker stop react_frontend || true
+          docker rm react_frontend || true
+
+          docker run -d --name node_backend \
+            -e NODE_ENV=development \
+            -e DATABASE_URL="mongodb+srv://SURJEETKUMAR:jSUwPe83w6JrAlK6@cluster0.ji8qiof.mongodb.net/myDatabase?retryWrites=true&w=majority" \
+            -e CLOUD_NAME="your_cloud_name_here" \
+            -e API_KEY="238723873333571" \
+            -e API_SECRET="6Cakwg2FWtrZ1fIhc2JdDKAtzXw" \
+            -e RAZORPAY_KEY="rzp_test_RLPP7lIbCCiPNx" \
+            -e RAZORPAY_SECRET="3sdLltWaTCdNNVUD7fggrX3n" \
+            -e MAIL_HOST="smtp.gmail.com" \
+            -e EMAIL_USER="surjeetyadav80067@gmail.com" \
+            -e EMAIL_PASS="iixdzqxvrixgryzj" \
+            -e JWT_SECRET="myVeryStrongSecret123!@#" \
+            -p 5000:5000 \
+            ersurjeetkumar9389/institutewebsite-backend:latest
+
+          docker run -d --name react_frontend \
+            -p 5173:80 \
+            ersurjeetkumar9389/institutewebsite-frontend:latest
